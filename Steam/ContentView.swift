@@ -36,6 +36,7 @@ struct ContentView: View {
                         Slider(value: $minRating, in: 0...100, step: 5)
                             .onChange(of: minRating) { _ in
                                 filterAndSortGames()
+                                // ошибка
                             }
                     }
                     .padding()
