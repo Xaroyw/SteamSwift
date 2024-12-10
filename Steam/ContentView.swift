@@ -76,20 +76,42 @@ struct ContentView: View {
                 } else {
                     // Список игр
                     List(filteredGames) { game in
-                        NavigationLink(destination: GameDetailView(game: game)) { // Переход к странице игры
+                        NavigationLink(destination: GameDetailView(
+                            game: game,
+                            normalPrice: game.normalPrice,
+                            salePrice: game.salePrice,
+                            discount: game.discount != nil ? String(format: "%.0f", game.discount!) : nil, // Преобразуем Double? в String?
+                            steamRatingPercent: game.steamRatingPercent
+                        )) {
                             HStack(spacing: 20) {
-                                RemoteImage(url: game.thumb)
-                                    .frame(width: 100, height: 50)
-                                    .cornerRadius(8)
+                                AsyncImage(url: URL(string: game.thumb)) { phase in
+                                    switch phase {
+                                    case .empty:
+                                        ProgressView()
+                                    case .failure:
+                                        Image(systemName: "photo")
+                                            .resizable()
+                                            .scaledToFill()
+                                    case .success(let image):
+                                        image.resizable()
+                                            .scaledToFill()
+                                    @unknown default:
+                                        EmptyView()
+                                    }
+                                }
+                                .frame(width: 100, height: 50)
+                                .cornerRadius(8)
 
                                 VStack(alignment: .leading, spacing: 5) {
                                     Text(game.title).bold()
-                                    Text("Цена: \(game.normalPrice)$ → \(game.salePrice)$").foregroundColor(.red)
-                                    Text("Скидка: \(String(format: "%.0f", game.discount))%")
-                                    Text("Рейтинг: \(game.steamRatingPercent)%")
+                                    Text("Цена: \(game.normalPrice ?? "0")$ → \(game.salePrice ?? "0")$")
+                                        .foregroundColor(.red)
+                                    Text("Скидка: \(String(format: "%.0f", game.discount ?? 0))%")
+                                    Text("Рейтинг: \(game.steamRatingPercent ?? "0")%")
                                 }
                             }
                         }
+
                     }
                 }
             }
@@ -106,8 +128,8 @@ struct ContentView: View {
     private func filterAndSortGames() {
         // Фильтрация игр по рейтингу и цене, а также по названию, если searchQuery не пуст
         filteredGames = games.filter { game in
-            let matchesRating = (Double(game.steamRatingPercent) ?? 0) >= minRating
-            let matchesPrice = (Double(game.salePrice) ?? 0) <= maxPrice
+            let matchesRating = (Double(game.steamRatingPercent ?? "0") ?? 0) >= minRating
+            let matchesPrice = (Double(game.salePrice ?? "0") ?? 0) <= maxPrice
             
             // Если поиск пустой, игнорируем фильтрацию по названию
             if searchQuery.isEmpty {
@@ -121,13 +143,13 @@ struct ContentView: View {
         // Применяем сортировку
         switch selectedSortOption {
         case .ratingLowToHigh:
-            filteredGames.sort { (Double($0.steamRatingPercent) ?? 0) < (Double($1.steamRatingPercent) ?? 0) }
+            filteredGames.sort { (Double($0.steamRatingPercent ?? "0") ?? 0) < (Double($1.steamRatingPercent ?? "0") ?? 0) }
         case .ratingHighToLow:
-            filteredGames.sort { (Double($0.steamRatingPercent) ?? 0) > (Double($1.steamRatingPercent) ?? 0) }
+            filteredGames.sort { (Double($0.steamRatingPercent ?? "0") ?? 0) > (Double($1.steamRatingPercent ?? "0") ?? 0) }
         case .priceLowToHigh:
-            filteredGames.sort { (Double($0.salePrice) ?? 0) < (Double($1.salePrice) ?? 0) }
+            filteredGames.sort { (Double($0.salePrice ?? "0") ?? 0) < (Double($1.salePrice ?? "0") ?? 0) }
         case .priceHighToLow:
-            filteredGames.sort { (Double($0.salePrice) ?? 0) > (Double($1.salePrice) ?? 0) }
+            filteredGames.sort { (Double($0.salePrice ?? "0") ?? 0) > (Double($1.salePrice ?? "0") ?? 0) }
         }
 
         noGamesFound = filteredGames.isEmpty

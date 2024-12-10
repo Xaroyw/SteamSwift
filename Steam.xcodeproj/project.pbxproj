@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48C142EC2D083A0C002774A4 /* GameDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C142EB2D083A0C002774A4 /* GameDetailView.swift */; };
 		48DD3EA22CFEDB8F0087F729 /* AnotherTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DD3EA12CFEDB8F0087F729 /* AnotherTestApp.swift */; };
 		48DD3EA42CFEDB8F0087F729 /* Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DD3EA32CFEDB8F0087F729 /* Games.swift */; };
 		48DD3EA72CFEDB8F0087F729 /* Steam.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 48DD3EA52CFEDB8F0087F729 /* Steam.xcdatamodeld */; };
@@ -16,7 +17,6 @@
 		48DD3EB92CFEDB910087F729 /* SteamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DD3EB82CFEDB910087F729 /* SteamTests.swift */; };
 		48DD3EC32CFEDB910087F729 /* SteamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DD3EC22CFEDB910087F729 /* SteamUITests.swift */; };
 		48DD3EC52CFEDB910087F729 /* SteamUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DD3EC42CFEDB910087F729 /* SteamUITestsLaunchTests.swift */; };
-		48DD3ED22CFEDC350087F729 /* GameDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DD3ED12CFEDC350087F729 /* GameDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		48C142EB2D083A0C002774A4 /* GameDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailView.swift; sourceTree = "<group>"; };
 		48DD3E9E2CFEDB8F0087F729 /* Steam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Steam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48DD3EA12CFEDB8F0087F729 /* AnotherTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherTestApp.swift; sourceTree = "<group>"; };
 		48DD3EA32CFEDB8F0087F729 /* Games.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
@@ -50,7 +51,6 @@
 		48DD3EBE2CFEDB910087F729 /* SteamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SteamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		48DD3EC22CFEDB910087F729 /* SteamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteamUITests.swift; sourceTree = "<group>"; };
 		48DD3EC42CFEDB910087F729 /* SteamUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteamUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		48DD3ED12CFEDC350087F729 /* GameDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +81,6 @@
 		48DD3E952CFEDB8F0087F729 = {
 			isa = PBXGroup;
 			children = (
-				48DD3ED12CFEDC350087F729 /* GameDetailView.swift */,
 				48DD3EA02CFEDB8F0087F729 /* Steam */,
 				48DD3EB72CFEDB910087F729 /* SteamTests */,
 				48DD3EC12CFEDB910087F729 /* SteamUITests */,
@@ -109,6 +108,7 @@
 				48DD3EAC2CFEDB910087F729 /* Steam.entitlements */,
 				48DD3EA52CFEDB8F0087F729 /* Steam.xcdatamodeld */,
 				48DD3EAD2CFEDB910087F729 /* Preview Content */,
+				48C142EB2D083A0C002774A4 /* GameDetailView.swift */,
 			);
 			path = Steam;
 			sourceTree = "<group>";
@@ -271,7 +271,7 @@
 				48DD3EA22CFEDB8F0087F729 /* AnotherTestApp.swift in Sources */,
 				48DD3EA72CFEDB8F0087F729 /* Steam.xcdatamodeld in Sources */,
 				48DD3EA92CFEDB8F0087F729 /* ContentView.swift in Sources */,
-				48DD3ED22CFEDC350087F729 /* GameDetailView.swift in Sources */,
+				48C142EC2D083A0C002774A4 /* GameDetailView.swift in Sources */,
 				48DD3EA42CFEDB8F0087F729 /* Games.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
