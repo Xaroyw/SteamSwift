@@ -149,7 +149,7 @@ class Api: ObservableObject {
                 }
                 return
             }
-            
+            //;jgf
             // Декодируем ответ в объект Game
             do {
                 let gameDetails = try JSONDecoder().decode(Game.self, from: data)
